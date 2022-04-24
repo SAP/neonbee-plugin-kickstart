@@ -1,0 +1,87 @@
+import static com.diffplug.spotless.LineEnding.UNIX
+
+plugins {
+    id 'idea'
+    id 'java-gradle-plugin'
+    id 'groovy'
+    id 'maven-publish'
+    id 'com.gradle.plugin-publish' version '1.0.0-rc-1'
+    id "com.diffplug.spotless" version "6.5.0"
+}
+
+group 'io.neonbee'
+version '0.1.0'
+
+repositories {
+    mavenCentral()
+    gradlePluginPortal()
+}
+
+dependencies {
+    implementation platform('org.codehaus.groovy:groovy-bom:3.0.10')
+    implementation 'org.codehaus.groovy:groovy-yaml:3.0.10'
+
+    // Module Plugin Dependencies
+    implementation 'org.ow2.asm:asm:9.2' // https://mvnrepository.com/artifact/org.ow2.asm/asm
+    implementation 'gradle.plugin.com.github.johnrengelman:shadow:7.1.2' // https://plugins.gradle.org/plugin/com.github.johnrengelman.shadow
+
+    // Static Code Checkers Plugin Dependencies
+    implementation 'com.diffplug.spotless:spotless-plugin-gradle:6.5.0' // https://plugins.gradle.org/plugin/com.diffplug.spotless
+    implementation 'com.github.spotbugs.snom:spotbugs-gradle-plugin:5.0.6' // https://plugins.gradle.org/plugin/com.github.spotbugs
+    implementation 'gradle.plugin.se.bjurr.violations:violations-gradle-plugin:1.50.16' // https://plugins.gradle.org/plugin/se.bjurr.violations.violations-gradle-plugin
+    implementation "gradle.plugin.com.github.ksoichiro:gradle-console-reporter:0.6.3" // https://plugins.gradle.org/plugin/com.github.ksoichiro.console.reporter
+    implementation "net.ltgt.gradle:gradle-errorprone-plugin:2.0.2" // https://plugins.gradle.org/plugin/net.ltgt.errorprone
+
+    // Models Plugin Dependencies
+    implementation 'com.github.node-gradle:gradle-node-plugin:3.0.1' // https://plugins.gradle.org/plugin/com.github.node-gradle.node
+}
+
+
+pluginBundle {
+    website = 'https://neonbee.io/'
+    vcsUrl = 'https://github.com/SAP/neonbee-plugin-kickstart'
+    tags = ['neonbee', 'kickstart']
+}
+
+gradlePlugin {
+    plugins {
+        base {
+            id = 'io.neonbee.gradle.kickstart.module'
+            implementationClass = 'io.neonbee.gradle.kickstart.ModulePlugin'
+            displayName = 'NeonBee Kickstart Module Plugin'
+            description = 'NeonBee Kickstart Module Plugin to lower the barrier to entry to explor NeonBee.'
+        }
+
+        models {
+            id = 'io.neonbee.gradle.kickstart.models'
+            implementationClass = 'io.neonbee.gradle.kickstart.ModelsPlugin'
+            displayName = 'NeonBee Kickstart Models Plugin'
+            description = 'NeonBee Kickstart Models Plugin to lower the barrier to entry to explor NeonBee.'
+        }
+
+        quality {
+            id = 'io.neonbee.gradle.kickstart.quality'
+            implementationClass = 'io.neonbee.gradle.kickstart.QualityPlugin'
+            displayName = 'NeonBee Kickstart Quality Plugin'
+            description = 'NeonBee Kickstart Quality Plugin to lower the barrier to entry to explor NeonBee.'
+        }
+
+        application {
+            id = 'io.neonbee.gradle.kickstart.application'
+            implementationClass = 'io.neonbee.gradle.kickstart.ApplicationPlugin'
+            displayName = 'NeonBee Kickstart Application Plugin'
+            description = 'NeonBee Kickstart Application Plugin to lower the barrier to entry to explor NeonBee.'
+        }
+    }
+}
+
+spotless {
+    groovy {
+        encoding 'UTF8'
+        trimTrailingWhitespace()
+        endWithNewline()
+        lineEndings UNIX
+        importOrderFile("${rootDir}/gradle/spotless/neonbee.importorder")
+        greclipse('4.21.0').configFile("${rootDir}/gradle/spotless/eclipse-formatter.xml")
+    }
+}
