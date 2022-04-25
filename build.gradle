@@ -10,7 +10,7 @@ plugins {
 }
 
 group 'io.neonbee'
-version '0.1.0'
+version '0.1.1'
 
 repositories {
     mavenCentral()
@@ -38,7 +38,7 @@ dependencies {
 
 
 pluginBundle {
-    website = 'https://neonbee.io/'
+    website = 'https://github.com/SAP/neonbee-plugin-kickstart'
     vcsUrl = 'https://github.com/SAP/neonbee-plugin-kickstart'
     tags = ['neonbee', 'kickstart']
 }
@@ -49,28 +49,28 @@ gradlePlugin {
             id = 'io.neonbee.gradle.kickstart.module'
             implementationClass = 'io.neonbee.gradle.kickstart.ModulePlugin'
             displayName = 'NeonBee Kickstart Module Plugin'
-            description = 'NeonBee Kickstart Module Plugin to lower the barrier to entry to explor NeonBee.'
+            description = 'NeonBee Kickstart Module Plugin to lower the barrier to entry to explore NeonBee.'
         }
 
         models {
             id = 'io.neonbee.gradle.kickstart.models'
             implementationClass = 'io.neonbee.gradle.kickstart.ModelsPlugin'
             displayName = 'NeonBee Kickstart Models Plugin'
-            description = 'NeonBee Kickstart Models Plugin to lower the barrier to entry to explor NeonBee.'
+            description = 'NeonBee Kickstart Models Plugin to lower the barrier to entry to explore NeonBee.'
         }
 
         quality {
             id = 'io.neonbee.gradle.kickstart.quality'
             implementationClass = 'io.neonbee.gradle.kickstart.QualityPlugin'
             displayName = 'NeonBee Kickstart Quality Plugin'
-            description = 'NeonBee Kickstart Quality Plugin to lower the barrier to entry to explor NeonBee.'
+            description = 'NeonBee Kickstart Quality Plugin to lower the barrier to entry to explore NeonBee.'
         }
 
         application {
             id = 'io.neonbee.gradle.kickstart.application'
             implementationClass = 'io.neonbee.gradle.kickstart.ApplicationPlugin'
             displayName = 'NeonBee Kickstart Application Plugin'
-            description = 'NeonBee Kickstart Application Plugin to lower the barrier to entry to explor NeonBee.'
+            description = 'NeonBee Kickstart Application Plugin to lower the barrier to entry to explore NeonBee.'
         }
     }
 }
