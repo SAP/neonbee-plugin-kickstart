@@ -1,8 +1,8 @@
 # NeonBee Kickstart Gradle Plugin
 
-The NeonBee Kickstart Gradle Plugin is a collection of several plugins that helps to develop NeonBee applications.
-The main focus of this plugin is to lower the barrier to entry and give developers interested in NeonBee a
-kickstart to develop their first NeonBee applications.
+The NeonBee Kickstart Gradle Plugin is a collection of several plugins that helps to develop
+[NeonBee](https://github.com/SAP/neonbee) applications. The main focus of this plugin is to lower
+the barrier to entry and give developers interested in NeonBee a kickstart to develop their first NeonBee applications.
 
 - [Application Plugin](#application-plugin)
   - [Application Configuration](#application-configuration)
