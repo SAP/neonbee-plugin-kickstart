@@ -1,3 +1,4 @@
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP/neonbee-plugin-kickstart)](https://api.reuse.software/info/github.com/SAP/neonbee-plugin-kickstart)
 # NeonBee Kickstart Gradle Plugin
 
 The NeonBee Kickstart Gradle Plugin is a collection of several plugins that helps to develop
