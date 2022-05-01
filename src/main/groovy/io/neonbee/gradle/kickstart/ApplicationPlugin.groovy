@@ -3,6 +3,7 @@ package io.neonbee.gradle.kickstart
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING
 import static org.gradle.api.plugins.JavaPlugin.IMPLEMENTATION_CONFIGURATION_NAME
 import static org.gradle.api.plugins.JavaPlugin.TEST_IMPLEMENTATION_CONFIGURATION_NAME
+import static org.gradle.api.plugins.JavaPlugin.TEST_TASK_NAME
 
 import java.nio.file.Files
 import java.nio.file.Path
@@ -45,6 +46,12 @@ class ApplicationPlugin implements Plugin<Project> {
 
         project.configure(project.extensions.getByType(JavaApplication)) {
             mainClassName = 'io.neonbee.Launcher'
+        }
+
+        project.tasks.named(TEST_TASK_NAME) {
+            if (ModelsPlugin.isApplied(project)) {
+                dependsOn "models:${ModelsPlugin.MODELS_COMPILE_TASK_NAME}"
+            }
         }
 
         TaskProvider<Task> createWorkingDirTask = GradleHelper.registerOrConfigureTask(project, CREATE_WORKING_DIR_TASK_NAME, Task) {
