@@ -18,12 +18,12 @@ class NodeHelper {
             // The directory where Node.js is unpacked (when download is true)
             workDir = cacheDir.resolve('nodejs').toFile()
             // Version of node to use.
-            version = '12.22.1'
+            version = '16.16.0'
 
             // The directory where npm is installed (when a specific version is defined)
             npmWorkDir = cacheDir.resolve( 'npm').toFile()
             // Version of npm to use.
-            npmVersion = '6.14.12'
+            npmVersion = '8.11.0'
 
             // The Node.js project directory location
             // This is where the package.json file and node_modules directory are located
