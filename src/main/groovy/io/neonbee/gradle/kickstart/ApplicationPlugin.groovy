@@ -45,7 +45,7 @@ class ApplicationPlugin implements Plugin<Project> {
         }
 
         project.configure(project.extensions.getByType(JavaApplication)) {
-            mainClassName = 'io.neonbee.Launcher'
+            mainClass = 'io.neonbee.Launcher'
         }
 
         project.tasks.named(TEST_TASK_NAME) {

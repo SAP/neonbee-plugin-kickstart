@@ -17,6 +17,10 @@ class GradleHelper {
         project.rootProject == project
     }
 
+    static boolean isModelsProject(Project project) {
+        project == project.getAllprojects().find {it.projectDir.getName() == 'models'}
+    }
+
     static Path rootProjectCacheDir(Project project) {
         project.rootProject.file(".gradle/").toPath()
     }

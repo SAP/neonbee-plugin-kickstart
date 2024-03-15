@@ -8,6 +8,7 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 
 import com.diffplug.gradle.spotless.SpotlessExtension
+
 import io.neonbee.gradle.kickstart.internal.GradleHelper
 
 class SpotlessPlugin implements Plugin<Project> {

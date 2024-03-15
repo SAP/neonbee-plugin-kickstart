@@ -8,6 +8,7 @@ import java.nio.file.Path
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.Task
+import org.gradle.api.artifacts.Configuration
 import org.gradle.api.plugins.quality.CheckstyleExtension
 import org.gradle.api.tasks.SourceSet
 import org.gradle.api.tasks.TaskProvider
@@ -18,10 +19,19 @@ class CheckstylePlugin implements Plugin<Project> {
     private static final String CHECK_STYLE_MAIN_TASK_NAME = 'checkstyleMain'
     private static final String CHECK_STYLE_TEST_TASK_NAME = 'checkstyleTest'
     private static final String CHECK_STYLE_CONFIG_DIR = 'gradle/checkstyle'
+    private static final String CHECK_STYLE_CONFIGURATION_NAME = 'checkstyle';
 
     @Override
     void apply(Project project) {
         project.pluginManager.apply(org.gradle.api.plugins.quality.CheckstylePlugin)
+
+        Configuration checkstyleConfiguration = project.configurations.maybeCreate(CHECK_STYLE_CONFIGURATION_NAME);
+        checkstyleConfiguration.resolutionStrategy {
+            capabilitiesResolution.withCapability("com.google.collections:google-collections") {
+                select("com.google.guava:guava:0")
+            }
+        }
+
 
         if (!project.file(CHECK_STYLE_CONFIG_DIR).exists()) {
             Path targetDir = project.file('gradle').toPath()
@@ -35,7 +45,7 @@ class CheckstylePlugin implements Plugin<Project> {
         // configure extension
         project.configure(project.extensions.getByType(CheckstyleExtension)) {
             ignoreFailures = true
-            toolVersion = '9.0'
+            toolVersion = '10.12.7'
             sourceSets = [mainSourceSet, testSourceSet]
             configDirectory = project.file(CHECK_STYLE_CONFIG_DIR)
         }

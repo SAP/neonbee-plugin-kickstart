@@ -39,7 +39,7 @@ class PmdPlugin implements Plugin<Project> {
             ignoreFailures = true
             sourceSets = [mainSourceSet, testSourceSet]
             ruleSets = []
-            toolVersion = '6.38.0' // https://pmd.github.io/
+            toolVersion = '6.55.0' // https://pmd.github.io/
             incrementalAnalysis = true // does require gradle 6
         }
 

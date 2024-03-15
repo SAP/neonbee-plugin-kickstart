@@ -4,6 +4,7 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 
 import com.github.ksoichiro.console.reporter.ConsoleReporterExtension
+
 import io.neonbee.gradle.kickstart.QualityExtension
 
 class ConsoleReporterPlugin implements Plugin<Project> {

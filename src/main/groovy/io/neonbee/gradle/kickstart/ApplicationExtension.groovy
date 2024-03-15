@@ -7,7 +7,7 @@ class ApplicationExtension {
 
     String workingDir = 'working_dir'
 
-    String neonbeeVersion = '0.10.0'
+    String neonbeeVersion = '0.34.0'
 
     ApplicationExtension(Project project) {
     }

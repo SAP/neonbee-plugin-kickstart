@@ -13,7 +13,7 @@ class ErrorPronePlugin implements Plugin<Project> {
     void apply(Project project) {
         project.pluginManager.apply(net.ltgt.gradle.errorprone.ErrorPronePlugin)
 
-        def errorProne = [group: 'com.google.errorprone', name: 'error_prone_core', version: '2.10.0']
+        def errorProne = [group: 'com.google.errorprone', name: 'error_prone_core', version: '2.24.1']
         project.dependencies.add(net.ltgt.gradle.errorprone.ErrorPronePlugin.CONFIGURATION_NAME, errorProne)
 
         project.tasks.withType(JavaCompile).configureEach {

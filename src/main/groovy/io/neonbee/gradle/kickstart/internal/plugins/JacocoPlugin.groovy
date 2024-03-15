@@ -20,7 +20,7 @@ class JacocoPlugin implements Plugin<Project> {
         project.configure(project.extensions.getByType(JacocoPluginExtension)) {
             File reportsDirFile = project.file("${project.buildDir}/reports/jacoco")
 
-            toolVersion = '0.8.7' // https://github.com/jacoco/jacoco/releases
+            toolVersion = '0.8.11' // https://github.com/jacoco/jacoco/releases
             reportsDirectory = reportsDirFile
 
             // configure in closure, to still be able to access reportsDirectory
