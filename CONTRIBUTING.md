@@ -24,6 +24,7 @@ The following rule governs code contributions:
 
 * Contributions must be licensed under the [Eclipse Public License 2.0](./LICENSE)
 * Due to legal reasons, contributors will be asked to accept a Developer Certificate of Origin (DCO) when they create the first pull request to this project. This happens in an automated fashion during the submission process. SAP uses [the standard DCO text of the Linux Foundation](https://developercertificate.org/).
+* Contributions must follow the [guideline for AI-generated code](https://github.com/SAP/.github/blob/main/CONTRIBUTING_USING_GENAI.md).
 
 ## Issues and Planning
 
